@@ -1,14 +1,34 @@
 
-<div class="bg-light border-right" id="sidebar-wrapper">
-  <div class="sidebar-heading user">
-    {{Auth::user()->name}} {{Auth::user()->lastname}}<br>
-    {{Auth::user()->email}} 
-  </div>
-    <div class="list-group list-group-flush">
-      <a href="{{url('/admin')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Dashboard</a>
-      <a href="{{url('/admin/users')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-friends"></i> Usuarios</a>
-      <a href="{{url('/admin/products')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-mug-hot"></i> Productos</a>
+<div class="sidebar shadow">
+  <div class="section-top">
+
+    <div class="user">
+      <span class="subtitle">Bienvenido:</span>
+      <div class="name">
+        {{ Auth::user()->name}} {{ Auth::user()->lastname}}
+      </div>
+      <div class="email">
+        {{ Auth::user()->email}}
+      </div>
+      <div class="logout">
+        <a href="{{ url('/logout') }}" data-toggle="tooltip" data-placement="top" title="Salir">
+          <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
     </div>
-  <a href="{{url('/logout')}}"><i class="fas fa-sign-out-alt"></i></a>
+  </div>
+  <div class="main">
+    <ul>
+      <li>
+        <a href="{{ url('/admin') }}"><i class="fas fa-home"></i>Dashboard</a> 
+      </li>
+      <li>
+        <a href="{{ url('/admin/users') }}"><i class="fas fa-user-friends"></i></i>Usuarios</a> 
+      </li>
+      <li>
+        <a href="{{ url('/admin/products') }}"><i class="fas fa-mug-hot"></i>Productos</a> 
+      </li>
+    </ul>
+  </div>
 </div>
     

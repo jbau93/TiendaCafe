@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
@@ -13,9 +13,9 @@ class AdminController extends Controller
         $this->middleware('adminMiddleware');
     }
 
-    //retorna la vista adminTindex
-    public function getIndex(){
+    //retorna la vista dashboard
+    public function getDashboard(){
 
-        return view('admin.adminIndex');
+        return view('admin.dashboard');
     }
 }
