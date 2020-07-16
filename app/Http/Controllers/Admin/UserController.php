@@ -12,13 +12,12 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('adminMiddleware');
-        
     }
 
     //retorna los usuarios registrados
     public function getUsers()
     {
-        $users = User::orderBy('id','Desc')->get();
+        $users = User::orderBy('id', 'Desc')->get();
         $data = ['users' => $users];
 
         return view('admin.user.user', $data);
