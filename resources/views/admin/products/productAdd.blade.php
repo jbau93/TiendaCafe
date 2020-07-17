@@ -57,16 +57,28 @@
                         {!! Form::number('price', null, ['class' => 'form-control' , 'min' => '0.00', 'step' => 'any']) !!}
                     </div>
                 </div>
-                <!--campo descuento-->
+                <!--campo si tiene descuento-->
                 <div class="col-md-3">
-                    <label for="price">Descuento:</label>
+                    <label for="indiscount">Tiene descuento?</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-add">
                                 <i class="far fa-keyboard"></i>
                             </span>
                         </div>
-                        {!! Form::select('discount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
+                        {!! Form::select('indiscount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
+                    </div>
+                </div>
+                <!--campo valor descuento-->
+                <div class="col-md-3">
+                    <label for="discount">Valor descuento:</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-add">
+                                <i class="far fa-keyboard"></i>
+                            </span>
+                        </div>
+                        {!! Form::number('discount', 0.00, ['class' => 'form-control' , 'min' => '0.00', 'step' => 'any']) !!}
                     </div>
                 </div>
             </div>
@@ -75,6 +87,12 @@
                 <div class="col-md-12">
                     <label for="content">Descripcion</label>
                     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+            <!--boton guardar-->
+            <div class="row m-top-16">
+                <div class="col-md-12">
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success']) !!}
                 </div>
             </div>
             {!! Form::close() !!}
