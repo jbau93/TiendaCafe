@@ -28,6 +28,9 @@
       <li>
         <a href="{{ url('/admin/products') }}"><i class="fas fa-mug-hot"></i>Productos</a> 
       </li>
+      <li>
+        <a href="{{ url('/admin/categories') }}"><i class="fas fa-tags"></i>Categorias</a>
+      </li>
     </ul>
   </div>
 </div>
