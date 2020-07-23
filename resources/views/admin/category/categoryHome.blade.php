@@ -19,6 +19,7 @@
         
                 <div class="inside">
                     {!! Form::open(['url' => '/admin/category/add']) !!}
+                    <!--campo nombre-->
                     <label for="name">Nombre</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -28,8 +29,8 @@
                         </div>
                         {!! Form::text('name', null, ['class' => 'form-control']) !!}
                     </div>
-
-                    <label for="name" class="m-top-16">Modulo</label>
+                    <!--campo modulo-->
+                    <label for="module" class="m-top-16">Modulo</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-add">
@@ -38,7 +39,7 @@
                         </div>
                         {!! Form::select('module', getModulesArray(), 0, ['class' => 'custom-select']) !!}
                     </div>
-                    
+                    <!--campo icono-->
                     <label for="icon" class="m-top-16">Icono</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
@@ -46,7 +47,7 @@
                                 <i class="fas fa-folder"></i>
                             </span>
                         </div>
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('icono', null, ['class' => 'form-control']) !!}
                     </div>
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success m-top-16'])!!}
                     {!! Form::close() !!}
