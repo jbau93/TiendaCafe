@@ -23,13 +23,13 @@ class UserController extends Controller
         return view('admin.user.user', $data);
     }
 
-    //edita los usuarios
-    /*public function getUsersEdit($id)
+    //editar los usuarios
+    public function getUsersEdit($id)
     {
-        $users = User::findOrFail($id);
-        $data = ['users' => $users];
+        $user = User::findOrFail($id);//si no existe usuario, devuelve error
+        $data = ['user' => $user];
 
-        return view('admin.user.userEdit');
+        return view('admin.user.userEdit', $data);
 
-    }*/
+    }
 }
