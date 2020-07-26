@@ -7,7 +7,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('/', 'Admin\AdminController@getDashboard');
 
     //usuarios
-    Route::get('/users', 'Admin\UserController@getUsers');
+    Route::get('/users/{status}', 'Admin\UserController@getUsers');
     Route::get('/user/{id}/edit', 'Admin\UserController@getUsersEdit');
 
     //productos

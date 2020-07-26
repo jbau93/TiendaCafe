@@ -25,7 +25,7 @@ function getStatusUser($id)
     $status = [
         '0' => 'Registrado',
         '1' => 'Verificado',
-        '100' =>  'Eliminado'
+        '100' =>  'Bloqueado'
     ];
 
     return $status[$id];

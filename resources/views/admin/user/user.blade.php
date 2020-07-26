@@ -16,7 +16,25 @@
         </div>
 
         <div class="inside">
-            <table class="table">
+            <!--botón filtrar usuarios-->
+            <div class="row">
+                <div class="col-m2 offset-md-10">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-filter"></i>Filtrar
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ url('/admin/users/all') }}"><i class="fas fa-users"></i> Todos</a>
+                            <a class="dropdown-item" href="{{ url('/admin/users/0') }}"><i class="fas fa-user-clock"></i> No verificados</a>
+                            <a class="dropdown-item" href="{{ url('/admin/users/1') }}"><i class="fas fa-user-check"></i> Verificados</a>
+                            <a class="dropdown-item" href="{{ url('/admin/users/100') }}"><i class="fas fa-user-lock"></i> Bloqueados</a>
+                          </div>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="table m-top-16">
                 <thead>
                     <tr>
                         <td>ID</td>

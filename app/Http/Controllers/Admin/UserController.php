@@ -15,11 +15,18 @@ class UserController extends Controller
     }
 
     //retorna los usuarios registrados
-    public function getUsers()
+    public function getUsers($status)
     {
-        $users = User::orderBy('id', 'Desc')->get();
-        $data = ['users' => $users];
+        if($status == 'all'){
+            $users = User::orderBy('id', 'Desc')->get();
 
+        }else{
+            
+            $users = User::where('status', $status)->orderBy('id', 'Desc')->get();
+
+        }
+
+        $data = ['users' => $users];
         return view('admin.user.user', $data);
     }
 
