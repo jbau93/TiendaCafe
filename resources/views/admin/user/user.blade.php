@@ -66,6 +66,9 @@
                         </td>
                     </tr>   
                     @endforeach
+                    <tr>
+                    <td colspan="5">{!! $users->render() !!}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

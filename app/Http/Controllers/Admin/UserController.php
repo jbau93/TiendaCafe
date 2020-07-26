@@ -18,11 +18,11 @@ class UserController extends Controller
     public function getUsers($status)
     {
         if($status == 'all'){
-            $users = User::orderBy('id', 'Desc')->get();
+            $users = User::orderBy('id', 'Desc')->paginate(10);
 
         }else{
             
-            $users = User::where('status', $status)->orderBy('id', 'Desc')->get();
+            $users = User::where('status', $status)->orderBy('id', 'Desc')->paginate(10);
 
         }
 
