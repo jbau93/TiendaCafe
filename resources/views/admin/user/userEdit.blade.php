@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
 <li class="breadcrumb-item">
-    <a href="{{ url('/admin/users') }}"><i class="fas fa-user-friends"></i> Usuarios</a>
+    <a href="{{ url('/admin/users/all') }}"><i class="fas fa-user-friends"></i> Usuarios</a>
 </li>
 @endsection
     
@@ -21,7 +21,7 @@
                     <!--foto de perfil-->
                     <div class="inside">
                         <div class="profile">
-                            @if(is_null($user->avatar))
+                            @if(is_null($user->photo))
                                 <img src="{{ url('/static/images/users.jfif') }}" class="photo-user">
                             @else
                                 <img src="{{ url('/uploads/user/'.$user->id.'/'.$user->photo ) }}" class="photo-user">
@@ -34,11 +34,15 @@
                                 <span class="title"><i class="far fa-calendar-alt"></i> Fecha de registro:</span>
                                 <span class="text">{{ $user->created_at }}</span>
                                 <span class="title"><i class="fas fa-user-tag"></i> Rol de usuario:</span>
-                                <span class="text">{{ getRoleUser($user->role) }}</span>
+                                <span class="text">{{ getRoleUser(null, $user->role) }}</span>
                                 <span class="title"><i class="far fa-star"></i> Estado:</span>
-                                <span class="text">{{ getStatusUser($user->status) }}</span>
-                                
+                                <span class="text">{{ getStatusUser(null, $user->status) }}</span>     
                             </div>
+                            @if($user->status == '100')
+                                <a href="{{ url('/admin/user/'.$user->id.'/locked') }}" class="btn btn-success">Activar usuario</a>
+                            @else
+                                <a href="{{ url('/admin/user/'.$user->id.'/locked') }}" class="btn btn-danger">Bloquear usuario</a>
+                            @endif
                         </div>
                     </div>
                 </div>

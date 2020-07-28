@@ -4,7 +4,7 @@
 
 @section('breadcrumb')
 <li class="breadcrumb-item">
-    <a href="{{ url('/admin/users') }}"><i class="fas fa-user-friends"></i> Usuarios</a>
+    <a href="{{ url('/admin/users/all') }}"><i class="fas fa-user-friends"></i> Usuarios</a>
 </li>
 @endsection
     
@@ -52,8 +52,8 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->lastname }}</td>
                         <td>{{ $user->email }}</td>
-                        <td><a href=""></td>
-                        <td></td>
+                        <td>{{ getRoleUser(null, $user->role) }}</td>
+                        <td>{{ getStatusUser(null, $user->status) }}</td>
                         <td>
                             <div class="options">
                                 <a href="{{ url('/admin/user/'.$user->id.'/edit') }}">

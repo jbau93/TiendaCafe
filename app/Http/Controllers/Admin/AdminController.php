@@ -11,6 +11,7 @@ class AdminController extends Controller
     {
         $this->middleware('auth');//verifica que el usuario este conectados
         $this->middleware('adminMiddleware');
+        $this->middleware('user.status');
     }
 
     //retorna la vista dashboard

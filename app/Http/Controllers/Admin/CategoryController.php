@@ -13,6 +13,7 @@ class CategoryController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('adminMiddleware');
+        $this->middleware('user.status');
     }
 
     public function getHome()

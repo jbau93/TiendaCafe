@@ -52,7 +52,17 @@ class ConnectController extends Controller
             //validamos que el usuario este registrado para iniciar sesión y dejamos la sesion en true
             if(Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')], true)):
 
-                return redirect('/admin');
+                //si el usuario está bloqueado, negar el acceso
+                if(Auth::user()->status == 100){
+
+                    return redirect('/logout');
+
+                }else{
+
+                    return redirect('/');
+                }
+
+                
 
             else:
 
@@ -131,8 +141,17 @@ class ConnectController extends Controller
     //al cerrar sesión el usuario, lo direcciona a la vista home
     public function getLogout()
     {
+        $status = Auth::user()->status;
         Auth::logout();
-        return redirect('/');
+
+        if($status == 100){
+
+            return redirect('/login')->with('message', 'Lo sentimos, has sido bloqueado')->with('typealert', 'danger');
+
+        }else{
+
+            return redirect('/');
+        }
 
     }
 }

@@ -12,6 +12,7 @@ class UserController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('adminMiddleware');
+        $this->middleware('user.status');
     }
 
     //retorna los usuarios registrados
@@ -38,5 +39,26 @@ class UserController extends Controller
 
         return view('admin.user.userEdit', $data);
 
+    }
+
+    public function getUsersLocked($id)
+    {
+        $user = User::findOrFail($id);
+
+        if($user->status == "100"){
+
+            $user->status = "1";
+            $message = "Usuario activo nuevamente";
+
+        }else{
+
+            $user->status = "100";
+            $message = "Usuario bloqueado con éxito";
+        }
+
+        if($user->save()){
+
+            return back()->with('message', $message)->with('typealert', 'success');
+        }
     }
 }

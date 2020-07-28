@@ -23,7 +23,7 @@
         <a href="{{ url('/admin') }}"><i class="fas fa-home"></i>Dashboard</a> 
       </li>
       <li>
-        <a href="{{ url('/admin/users') }}"><i class="fas fa-user-friends"></i></i>Usuarios</a> 
+        <a href="{{ url('/admin/users/all') }}"><i class="fas fa-user-friends"></i>Usuarios</a> 
       </li>
       <li>
         <a href="{{ url('/admin/products') }}"><i class="fas fa-mug-hot"></i>Productos</a> 

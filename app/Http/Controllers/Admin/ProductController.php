@@ -11,6 +11,7 @@ class ProductController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('adminMiddleware');
+        $this->middleware('user.status');
         
     }
 
