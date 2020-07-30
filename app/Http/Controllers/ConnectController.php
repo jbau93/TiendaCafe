@@ -154,4 +154,47 @@ class ConnectController extends Controller
         }
 
     }
+
+    //funcion para recuperar contraseña
+    public function getRecover()
+    {
+        return view('connect.recover');
+    }
+
+    public function postRecover(Request $request)
+    {
+        $rules = [
+            'email' => 'required|email',
+        ];
+
+        $messages = [
+            'email.required' => 'Debes ingresar tu e-mail',
+            'email.email' => 'El formato de su e-mail es inválido',            
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        //pasamos todos los valores a validator
+        if($validator->fails()){
+
+            return back()->withErrors($validator)->with('message', 
+            'Se ha producido un error')->with('typealert' , 'danger');
+        
+        }else{
+
+            $user = User::where('email', $request->input('email'))->count();
+
+            if($user == "1"){
+
+                $user = User::where('email', $request->input('email'))->first();
+                $data = ['name' => $user->name, 'email' => $user->email];
+
+                return view('email.recover');
+
+            }else{
+
+                return back()->with('message', 'Este email no existe.')->with('typealert', 'danger');
+            }
+        }
+    }
 }
