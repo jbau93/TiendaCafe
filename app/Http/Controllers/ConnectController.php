@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\UserSendRecover;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Hash as FacadesHash;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class ConnectController extends Controller
@@ -155,12 +157,13 @@ class ConnectController extends Controller
 
     }
 
-    //funcion para recuperar contraseña
+    //funcion que retorna vista para recuperar contraseña
     public function getRecover()
     {
         return view('connect.recover');
     }
 
+    //funcion que valida los datos para recuperar contraseña
     public function postRecover(Request $request)
     {
         $rules = [
@@ -187,14 +190,31 @@ class ConnectController extends Controller
             if($user == "1"){
 
                 $user = User::where('email', $request->input('email'))->first();
-                $data = ['name' => $user->name, 'email' => $user->email];
+                $code = rand(100000, 999999); //numero aleatorio
+                $data = ['name' => $user->name, 'email' => $user->email, 'code' => $code];
+                $userCode = User::find($user->id);
+                $userCode->password_Code = $code;
 
-                return view('email.recover');
+                if($userCode->save()){
 
-            }else{
+                    Mail::to($user->email)->send(new UserSendRecover($data));
 
-                return back()->with('message', 'Este email no existe.')->with('typealert', 'danger');
+                    return redirect('/reset?email='.$user->email)->with('message', 
+                    'Ingresa el código que hemos enviado al email')->with('typealert', 'danger');
+
+                }else{
+
+                    return back()->with('message', 'Este email no existe.')->with('typealert', 'danger');
+                }
+
             }
         }
+    }
+
+    public function getReset(Request $request)
+    {
+        $data = ['email' => $request->get('email')];
+
+        return view('connect.reset', $data);
     }
 }

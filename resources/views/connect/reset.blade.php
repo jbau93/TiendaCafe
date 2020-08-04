@@ -5,7 +5,7 @@
 @section('content')
     <div class="box box_login shadow">
         <div class="inside">
-        {!! Form::open(['url' => '/recover'])!!}
+        {!! Form::open(['url' => '/reset'])!!}
         <!--input email-->
         <label form="email">E-mail:</label>
         <div class="input-group">
