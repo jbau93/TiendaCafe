@@ -8,5 +8,4 @@
     <p><a href="{{ url('/reset?email='.$email) }}" class="btn btn-primary">Recuperar contraseña</a></p>
     <p>Sí el anterior botón no funciona, copia y pega el siguiente link en tu navegador </p>
     <p><a href="{{ url('/reset?email='.$email) }}" class="btn btn-primary">Recuperar contraseña</a></p>
-    <p>{{ url('/reset?email='.$email) }}</p>
 @stop

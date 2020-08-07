@@ -26,7 +26,7 @@ Route::get('/logout','ConnectController@getLogout')->name('logout');
 Route::get('/recover','ConnectController@getRecover')->name('recover');
 Route::post('/recover','ConnectController@postRecover')->name('recover');
 Route::get('/reset','ConnectController@getReset')->name('reset');
-
+Route::post('/reset','ConnectController@postReset')->name('reset');
 
 //router register
 Route::get('/register','ConnectController@getRegister')->name('register');

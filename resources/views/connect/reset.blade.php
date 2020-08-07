@@ -20,7 +20,7 @@
             <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fas fa-envelope-square"></i></div>
             </div>
-            {!! Form::email('code', null, ['class' => 'form-control', 'required'])!!}
+            {!! Form::number('code', null, ['class' => 'form-control', 'required'])!!}
         </div>
         {!! Form::submit('Enviar información', ['class' => 'btn btn-success margtop16'])!!}
         {!! Form::close()!!}
