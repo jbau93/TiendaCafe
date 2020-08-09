@@ -18,6 +18,21 @@ Route::get('/', function () {
 });
 
 //router login
+Route::get('/login', 'Login\LoginController@getLogin')->name('login');
+Route::post('/login', 'Login\LoginController@postLogin')->name('login');
+Route::get('/logout', 'Login\LoginController@getLogout')->name('logout');
+
+//router register
+Route::get('/register','Register\RegisterController@getRegister')->name('register');
+Route::post('/register','Register\RegisterController@postRegister')->name('register');
+
+//router recover
+Route::get('/recover','Recover\RecoverController@getRecover')->name('recover');
+Route::post('/recover','Recover\RecoverController@postRecover')->name('recover');
+Route::get('/reset','Recover\ResetController@getReset')->name('reset');
+Route::post('/reset','Recover\ResetController@postReset')->name('reset');
+
+/*router login
 Route::get('/login','ConnectController@getLogin')->name('login');
 Route::post('/login','ConnectController@postLogin')->name('login');
 Route::get('/logout','ConnectController@getLogout')->name('logout');
@@ -30,4 +45,4 @@ Route::post('/reset','ConnectController@postReset')->name('reset');
 
 //router register
 Route::get('/register','ConnectController@getRegister')->name('register');
-Route::post('/register','ConnectController@postRegister')->name('register');
+Route::post('/register','ConnectController@postRegister')->name('register');*/
