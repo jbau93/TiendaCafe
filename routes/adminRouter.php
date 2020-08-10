@@ -10,6 +10,7 @@ Route::prefix('/admin')->group(function(){
     Route::get('/users/{status}', 'Admin\UserController@getUsers');
     Route::get('/user/{id}/edit', 'Admin\UserController@getUsersEdit');
     Route::get('/user/{id}/locked', 'Admin\UserController@getUsersLocked');
+    Route::get('/user/{id}/permissions', 'Admin\UserController@getUsersPermissions');
 
     //productos
     Route::get('/products', 'Admin\ProductController@getHome');

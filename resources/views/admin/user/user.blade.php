@@ -56,10 +56,13 @@
                         <td>{{ getStatusUser(null, $user->status) }}</td>
                         <td>
                             <div class="options">
-                                <a href="{{ url('/admin/user/'.$user->id.'/edit') }}">
+                                <a href="{{ url('/admin/user/'.$user->id.'/edit') }}" title="Editar">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a href="{{ url('/admin/user/'.$user->id.'/delete') }}">
+                                <a href="{{ url('/admin/user/'.$user->id.'/permissions') }}" title="Permisos">
+                                    <i class="fas fa-door-open"></i>
+                                </a>
+                                <a href="{{ url('/admin/user/'.$user->id.'/delete') }}" title="Eliminar">
                                     <i class="far fa-trash-alt"></i>
                                 </a>
                             </div>

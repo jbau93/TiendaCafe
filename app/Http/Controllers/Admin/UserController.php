@@ -18,13 +18,11 @@ class UserController extends Controller
     //retorna los usuarios registrados
     public function getUsers($status)
     {
-        if($status == 'all'){
+        if ($status == 'all') {
             $users = User::orderBy('id', 'Desc')->paginate(10);
+        } else {
 
-        }else{
-            
             $users = User::where('status', $status)->orderBy('id', 'Desc')->paginate(10);
-
         }
 
         $data = ['users' => $users];
@@ -34,31 +32,37 @@ class UserController extends Controller
     //editar los usuarios
     public function getUsersEdit($id)
     {
-        $user = User::findOrFail($id);//si no existe usuario, devuelve error
+        $user = User::findOrFail($id); //si no existe usuario, devuelve error
         $data = ['user' => $user];
 
         return view('admin.user.userEdit', $data);
-
     }
 
     public function getUsersLocked($id)
     {
         $user = User::findOrFail($id);
 
-        if($user->status == "100"){
+        if ($user->status == "100") {
 
             $user->status = "1";
             $message = "Usuario activo nuevamente";
-
-        }else{
+        } else {
 
             $user->status = "100";
             $message = "Usuario bloqueado con éxito";
         }
 
-        if($user->save()){
+        if ($user->save()) {
 
             return back()->with('message', $message)->with('typealert', 'success');
         }
+    }
+
+    public function getUsersPermissions($id)
+    {
+        $user = User::findOrFail($id);
+        $data = ['user' => $user];
+
+        return view('admin.user.userPermission', $data);
     }
 }
