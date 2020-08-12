@@ -15,7 +15,7 @@ class AddSoftDeletedToCategoriesTable extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             
-            $table->softDeletes()->after('icono');
+            $table->softDeletes()->after('icon');
         });
     }
 

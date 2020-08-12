@@ -47,10 +47,39 @@
                                 <i class="fas fa-folder"></i>
                             </span>
                         </div>
-                        {!! Form::text('icono', null, ['class' => 'form-control']) !!}
+                        {!! Form::text('icon', null, ['class' => 'form-control']) !!}
                     </div>
                     {!! Form::submit('Guardar', ['class' => 'btn btn-success m-top-16'])!!}
                     {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel shadow">
+                <div class="header">
+                    <h2 class="title"><i class="fas fa-tags"></i> Categorias</a>
+                </div>
+        
+                <div class="inside">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <td>Icono</td>
+                              <td>Nombre</td>
+                              <td></td>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          @foreach ($cats as $cat)
+                              <tr>
+                                <td>{!! $cat->icon !!}</td>
+                                <td>{{ $cat->name}}</td>
+                                <td>{{ }}</td>
+                              </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
                 </div>
             </div>
         </div>

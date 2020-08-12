@@ -11,5 +11,5 @@ class Category extends Model
 
     protected $dates = ['deleted_at'];
     protected $table = 'categories'; //usamos la tabla categories
-    protected $hiden = ['created_at', 'updated_at']; //ocultamos los campos
+    protected $hidden = ['created_at', 'updated_at']; //ocultamos los campos
 }
