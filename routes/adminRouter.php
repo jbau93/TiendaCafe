@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('/admin')->group(function(){
+Route::prefix('/admin')->group(function () {
 
     Route::get('/', 'Admin\AdminController@getDashboard');
 
@@ -14,13 +14,10 @@ Route::prefix('/admin')->group(function(){
 
     //productos
     Route::get('/products', 'Admin\ProductController@getHome');
-    Route::get('/products/add', 'Admin\ProductController@getProductAdd');
+    Route::get('/product/add', 'Admin\ProductController@getProductAdd');
+    Route::post('/product/add', 'Admin\ProductController@postProductAdd');
 
     //categorias
-    Route::get('/categories/{module}', 'Admin\CategoryController@getHome');
-    Route::post('/category/add/1', 'Admin\CategoryController@postCategoryAdd');
-
-    
+    Route::get('/categories', 'Admin\CategoryController@getHome');
+    Route::post('/category/add', 'Admin\CategoryController@postCategoryAdd');
 });
-
-    

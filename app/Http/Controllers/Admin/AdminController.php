@@ -9,14 +9,14 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');//verifica que el usuario este conectados
+        $this->middleware('auth'); //verifica que el usuario este conectados
         $this->middleware('adminMiddleware');
         $this->middleware('user.status');
     }
 
     //retorna la vista dashboard
-    public function getDashboard(){
-
+    public function getDashboard()
+    {
         return view('admin.dashboard');
     }
 }
