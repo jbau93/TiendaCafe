@@ -49,7 +49,7 @@
                         </div>
                         {!! Form::text('icon', null, ['class' => 'form-control']) !!}
                     </div>
-                    {!! Form::submit('Guardar', ['class' => 'btn btn-success m-top-16'])!!}
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-success m-top-16']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>
@@ -71,13 +71,7 @@
                           </tr>
                       </thead>
                       <tbody>
-                          @foreach ($cats as $cat)
-                              <tr>
-                                <td>{!! $cat->icon !!}</td>
-                                <td>{{ $cat->name}}</td>
-                                <td>{{ }}</td>
-                              </tr>
-                          @endforeach
+                          
                       </tbody>
                   </table>
                 </div>

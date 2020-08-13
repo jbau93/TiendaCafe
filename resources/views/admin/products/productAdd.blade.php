@@ -5,7 +5,7 @@
 @section('breadcrumb')
 <li class="breadcrumb-item">
     <a href="{{ url('/admin/products') }}"><i class="fas fa-mug-hot"></i>Productos</a>
-    <a href="{{ url('/admin/products/add') }}"><i class="fas fa-plus-square"></i> Adicionar productos</a>
+    <a href="{{ url('/admin/product/add') }}"><i class="fas fa-plus-square"></i> Adicionar productos</a>
 </li>
 @endsection
 
@@ -17,7 +17,7 @@
         </div>
 
         <div class="inside">
-            {!! Form::open(['url' => '/admin/products/add']) !!}
+            {!! Form::open(['url' => '/admin/product/add']) !!}
             <div class="row">
                 <!--campo nombre-->
                 <div class="col-md-6">
@@ -33,7 +33,10 @@
                 </div>
                 <!--campo categoria-->
                 <div class="col-md-3">
-                    <label for="name">Categoria:</label>
+                    <label for="category_id">Categoría</label>
+                    <div class="input group">
+                        {!! Form::select('category_id', $categories, 0, ['class'=>'custom-select']) !!}
+                    </div>
                 </div>
                 <!--campo imagen-->
                 <div class="col-md-3">
@@ -59,14 +62,14 @@
                 </div>
                 <!--campo si tiene descuento-->
                 <div class="col-md-3">
-                    <label for="indiscount">Tiene descuento?</label>
+                    <label for="in_discount">Tiene descuento?</label>
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-add">
                                 <i class="far fa-keyboard"></i>
                             </span>
                         </div>
-                        {!! Form::select('indiscount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
+                        {!! Form::select('in_discount', ['0' => 'No', '1' => 'Si'], 0, ['class' => 'custom-select']) !!}
                     </div>
                 </div>
                 <!--campo valor descuento-->
@@ -85,7 +88,7 @@
             <!--campo descripcion-->
             <div class="row m-top-16">
                 <div class="col-md-12">
-                    <label for="content">Descripcion</label>
+                    <label form="content">Descripcion</label>
                     {!! Form::textarea('content', null, ['class' => 'form-control']) !!}
                 </div>
             </div>

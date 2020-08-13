@@ -17,7 +17,7 @@
 
         <div class="inside">
             <div class="buttons">
-                <a href="{{ url('/admin/products/add') }}" class="btn btn-primary"><i class="fas fa-plus-square"></i>Adicionar</a>
+                <a href="{{ url('/admin/product/add') }}" class="btn btn-primary"><i class="fas fa-plus-square"></i>Adicionar</a>
             </div>
             <table class="table">
             </table>

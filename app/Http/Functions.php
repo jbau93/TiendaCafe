@@ -4,7 +4,7 @@ function getModulesArray()
 {
     $array = [
         '0' => 'Productos',
-        '1' => 'Blog'
+        '1' => 'Talleres'
     ];
 
     return $array;
@@ -17,15 +17,13 @@ function getRoleUser($mode, $id)
         '1' => 'Administrador'
     ];
 
-    if(!is_null($mode)){
+    if (!is_null($mode)) {
 
         return $rol;
-
-    }else{
+    } else {
 
         return $rol[$id];
     }
-
 }
 
 function getStatusUser($mode, $id)
@@ -36,11 +34,10 @@ function getStatusUser($mode, $id)
         '100' =>  'Bloqueado'
     ];
 
-    if(!is_null($mode)){
+    if (!is_null($mode)) {
 
         return $status;
-
-    }else{
+    } else {
 
         return $status[$id];
     }

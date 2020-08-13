@@ -19,12 +19,12 @@ class CategoryController extends Controller
         $this->middleware('user.status');
     }
 
-    public function getHome($module)
+    public function getHome()
     {
-        $cats = Category::where('module',$module)->orderBy('name','Asc')->get();
-        $data = ['cats' => $cats];
+        //$cats = Category::where('module', $module)->orderBy('name', 'Asc')->get();
+        //$data = ['cats' => $cats];
 
-        return view('admin.category.categoryHome', $data);
+        return view('admin.category.categoryHome');
     }
 
     public function postCategoryAdd(Request $request)
